@@ -63,11 +63,13 @@ public class Main extends MemberFileConverter {
 
     public static void main(String[] args) throws Exception {
         //TODO
-        File currentDirFile = new File(".");
-        String helper = currentDirFile.getAbsolutePath();
         Main main = new Main();
         File file = new File("Members.txt");
-        String outputPath = "./Output";
+        File directory = new File("./output");
+        if (!directory.exists()) {
+            directory.mkdir();
+        }
+        String outputPath = "./output";
         String outputFileName = "outputFile.csv";
         main.convert(file, outputPath, outputFileName);
     }
